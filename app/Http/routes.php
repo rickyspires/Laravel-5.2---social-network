@@ -27,6 +27,13 @@ Route::group(['middleware' => ['web']], function () {
 
     //this must be in "web" for Token to work
     Route::get('/', function () {
+
+        // Retrieve a piece of data from the session...
+        $value = session('key');
+
+        // Store a piece of data in the session...
+        session(['key' => 'value']);
+        
         return view('home');
     })->name('home');
 

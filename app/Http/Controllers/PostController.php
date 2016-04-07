@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-//use App\Like;
+use App\Like;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -80,29 +80,32 @@ class PostController extends Controller
         if (!$post) {
             return null;
         }
-        //check user is authorized
+        //check if user is auth
         $user = Auth::user();
 
-        //check if you have already liked a post
-        //$user is the currently logged in user
-        //likes() to get the $user likes
-        //where postid = postid -> first one
+        //check if already liked
         $like = $user->likes()->where('post_id', $post_id)->first();
-
-        //if you did find something
         if ($like) {
+            //already like
             $already_like = $like->like;
             $update = true;
+            
+            //if clicked when already like - delete
             if ($already_like == $is_like) {
                 $like->delete();
                 return null;
             }
         } else {
+            //add liked
             $like = new Like();
         }
+        //now we want to edit the like
+        //set variables
         $like->like = $is_like;
         $like->user_id = $user->id;
         $like->post_id = $post->id;
+
+        //update or save
         if ($update) {
             $like->update();
         } else {

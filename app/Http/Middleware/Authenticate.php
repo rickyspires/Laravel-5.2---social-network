@@ -18,14 +18,10 @@ class Authenticate
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->guest()) {
-            if ($request->ajax() || $request->wantsJson()) {
-                $message = 'There was a 401 error';
-                return response('Unauthorized.', 401)->with(['message' => $message]);
+            if ($request->ajax()) {
+                return response('Unauthorized.', 401);
             } else {
-                // return redirect()->guest('login');
-                $message = 'guest login';
-                return redirect()->route('home')->with(['message' => $message]);
-
+                return redirect()->route('home');
             }
         }
 

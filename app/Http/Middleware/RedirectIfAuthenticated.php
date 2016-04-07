@@ -18,10 +18,8 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            $message = 'redirect auth 2';
-            return redirect('/')->with(['message' => $message]);
+            return redirect('/');
         }
-
         return $next($request);
     }
 }

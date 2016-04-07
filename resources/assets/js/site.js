@@ -51,7 +51,7 @@ $(document).ready(function (){
         //also pass post id and token ajax
         $.ajax({
             method: 'POST',
-            url: urlLike, //set up in route and dashboard - var urlLike = '{{ route('like')
+            url: urlLike,
             data: {isLike: isLike, postId: postId, _token: token}
         })
         //if done call back

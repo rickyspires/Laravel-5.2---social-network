@@ -14,12 +14,12 @@
       <meta name="description" content="">
       <meta name="author" content="Ricky Spires">
       
-      <link rel="icon" href="../../favicon.ico">
+   <!--    <link rel="icon" href="../../favicon.ico">
       <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
       <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
       <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png">
       
-      <link href='http://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'> -->
       <link rel="stylesheet" type="text/css" href="{{ elixir('css/all.css') }}">
       
       @yield('head')
